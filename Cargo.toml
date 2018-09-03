@@ -11,6 +11,10 @@ path = "src/bin/guessing_game.rs"
 name = "hello_world"
 path = "src/bin/hello_world.rs"
 
+[[bin]]
+name = "rocks"
+path = "src/bin/rocks.rs"
+
 [workspace]
 members = [
     "guessing_game",
@@ -18,3 +22,4 @@ members = [
 
 [dependencies]
 guessing_game = { path = "guessing_game" }
+clap = "2"
