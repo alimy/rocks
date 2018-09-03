@@ -3,4 +3,13 @@ name = "rocks"
 version = "0.1.0"
 authors = ["Michael Li <alimy@gility.net>"]
 
+[[bin]]
+name = "guessing_game"
+path = "src/bin/guessing_game.rs"
+
+[[bin]]
+name = "hello_world"
+path = "src/bin/hello_world.rs"
+
 [dependencies]
+rand = "0.5.5"
