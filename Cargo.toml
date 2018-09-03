@@ -11,5 +11,10 @@ path = "src/bin/guessing_game.rs"
 name = "hello_world"
 path = "src/bin/hello_world.rs"
 
+[workspace]
+members = [
+    "guessing_game",
+]
+
 [dependencies]
-rand = "0.5.5"
+guessing_game = { path = "guessing_game" }
