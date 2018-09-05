@@ -2,13 +2,18 @@
 name = "rocks"
 version = "0.1.0"
 authors = ["Michael Li <alimy@gility.net>"]
+description = "Rust tutorial example"
+license = "Apache-2.0"
 
 [workspace]
 members = [
     "guessing_game",
     "rocks_ctl",
+    "variables",
+    "ownership"
 ]
 
 [dependencies]
 guessing_game = { path = "guessing_game" }
+ownership = { path = "ownership"}
 clap = "2"
