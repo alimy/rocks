@@ -10,10 +10,12 @@ members = [
     "guessing_game",
     "rocks_ctl",
     "variables",
-    "ownership"
+    "ownership",
+    "communicator"
 ]
 
 [dependencies]
 guessing_game = { path = "guessing_game" }
-ownership = { path = "ownership"}
+ownership = { path = "ownership" }
+communicator = { path = "communicator" }
 clap = "2"
