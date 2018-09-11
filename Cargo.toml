@@ -7,15 +7,17 @@ license = "Apache-2.0"
 
 [workspace]
 members = [
-    "guessing_game",
-    "rocks_ctl",
+    "guessing-game",
+    "rocks-ctl",
     "variables",
     "ownership",
-    "communicator"
+    "communicator",
+    "actix-sample",
+    "network-sample"
 ]
 
 [dependencies]
-guessing_game = { path = "guessing_game" }
+guessing-game = { path = "guessing-game" }
 ownership = { path = "ownership" }
 communicator = { path = "communicator" }
 clap = "2"

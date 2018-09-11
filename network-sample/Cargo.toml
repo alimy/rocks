@@ -1,0 +1,12 @@
+[package]
+name = "network-sample"
+version = "0.1.0"
+authors = ["Michael Li <alimy@gility.net>"]
+
+[[bin]]
+name = "tcp-echo-server"
+
+[[bin]]
+name = "tcp-echo-client"
+
+[dependencies]

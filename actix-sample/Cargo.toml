@@ -1,0 +1,7 @@
+[package]
+name = "actix-sample"
+version = "0.1.0"
+authors = ["Michael Li <alimy@gility.net>"]
+
+[dependencies]
+actix-web = "0.7"
