@@ -1,4 +1,5 @@
 extern crate clap;
+extern crate collections;
 extern crate communicator;
 extern crate guessing_game;
 extern crate ownership;
@@ -20,19 +21,31 @@ fn main() {
         .subcommand(SubCommand::with_name("communicator")
             .about("someting about module system in rust")
         )
+        .subcommand(SubCommand::with_name("collections")
+            .about("someting about collections")
+        )
         .get_matches();
 
-    if let Some(_matches) = matches.subcommand_matches("hello_world") {
-        println!("Hello, world!");
-    } else if let Some(_matches) = matches.subcommand_matches("guessing_game") {
-        guessing_game::run();
-    } else if let Some(_matches) = matches.subcommand_matches("ownership") {
-        ownership::run();
-    } else if let Some(_matches) = matches.subcommand_matches("communicator") {
-        communicator::run();
-        communicator::client::connect();
-        communicator::network::connect();
-        communicator::network::server::connect();
-        communicator::server::connect();
+    match matches.subcommand_name() {
+        Some("hello_world") => {
+            println!("Hello, world!");
+        },
+        Some("guessing_game") => {
+            guessing_game::run();
+        },
+        Some("ownership") => {
+            ownership::run();
+        },
+        Some("communicator") => {
+            communicator::run();
+            communicator::client::connect();
+            communicator::network::connect();
+            communicator::network::server::connect();
+            communicator::server::connect();
+        },
+        Some("collections") => {
+            collections::run();
+        },
+        _ => {},
     }
 }

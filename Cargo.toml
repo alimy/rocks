@@ -13,11 +13,13 @@ members = [
     "ownership",
     "communicator",
     "actix-sample",
-    "network-sample"
+    "network-sample",
+    "collections"
 ]
 
 [dependencies]
 guessing-game = { path = "guessing-game" }
 ownership = { path = "ownership" }
 communicator = { path = "communicator" }
+collections = { path = "collections" }
 clap = "2"
