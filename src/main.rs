@@ -25,6 +25,8 @@ fn main() {
     if let Some(_matches) = matches.subcommand_matches("hello_world") {
         println!("Hello, world!");
     } else if let Some(_matches) = matches.subcommand_matches("guessing_game") {
+        let guess = guessing_game::Guess::new(32);
+        println!("guess.value(): {}", guess.value());
         guessing_game::run();
     } else if let Some(_matches) = matches.subcommand_matches("ownership") {
         ownership::run();
