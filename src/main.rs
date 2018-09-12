@@ -31,6 +31,8 @@ fn main() {
             println!("Hello, world!");
         },
         Some("guessing_game") => {
+            let guess = guessing_game::Guess::new(32);
+            println!("guess.value(): {}", guess.value());
             guessing_game::run();
         },
         Some("ownership") => {
