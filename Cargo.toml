@@ -14,7 +14,8 @@ members = [
     "communicator",
     "actix-sample",
     "network-sample",
-    "collections"
+    "collections",
+    "generics"
 ]
 
 [dependencies]
