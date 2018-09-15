@@ -10,7 +10,7 @@ mod outermost {
     }
 }
 
-fn try_me() {
+pub fn try_me() {
     outermost::middle_function();
     // outermost::middle_secret_function();
     // outermost::inside::inner_function();

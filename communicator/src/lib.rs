@@ -17,5 +17,6 @@ mod tests {
         ::network::server::connect();
         server::connect();
         super::client::connect();
+        super::outermost::try_me()
     }
 }
