@@ -34,6 +34,6 @@ fn run_minigrep_grep() {
 }
 
 fn main() {
-    run_minigrep();
-    // run_minigrep_grep();
+    // run_minigrep();
+    run_minigrep_grep();
 }
