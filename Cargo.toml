@@ -15,7 +15,8 @@ members = [
     "actix-sample",
     "network-sample",
     "collections",
-    "generics"
+    "generics",
+    "minigrep"
 ]
 
 [dependencies]
