@@ -7,6 +7,7 @@ pub struct Config {
     query: String,
     filename: String,
     contents: String,
+    case_sensitive: bool,
 }
 
 impl Config {
@@ -19,8 +20,9 @@ impl Config {
 
         let query = args[1].clone();
         let filename = args[2].clone();
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
 
-        Ok(Config { query, filename, contents: String::from("") })
+        Ok(Config { query, filename, contents: String::from(""), case_sensitive })
     }
 
     fn load_contents(&mut self) -> Result<(), Box<Error>> {
@@ -34,40 +36,47 @@ impl Config {
     pub fn run(&mut self) -> Result<(), Box<Error>> {
         self.load_contents()?;
 
-        for line in search(&self.query, &self.contents) {
+        let results = if self.case_sensitive {
+            self.search_case_sensitive()
+        } else {
+            self.search_case_insensitive()
+        };
+
+        for line in results {
             println!("{}", line);
         }
 
         Ok(())
     }
-}
 
-fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
+    fn search_case_sensitive(&self) -> Vec<&str> {
+        let mut results = Vec::new();
 
-    for line in contents.lines() {
-        if line.contains(query) {
-            results.push(line.trim());
+        for line in self.contents.lines() {
+            if line.contains(&self.query) {
+                results.push(line.trim());
+            }
         }
+        results
     }
-    results
+
+    fn search_case_insensitive(&self) -> Vec<&str> {
+        let query = self.query.to_lowercase();
+        let mut results = Vec::new();
+
+        for line in self.contents.lines() {
+            if line.to_lowercase().contains(&query) {
+                results.push(line.trim());
+            }
+        }
+        results
+    }
 }
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-
     #[test]
-    fn one_result() {
-        let query = "duct";
-        let contents = "\
-                Rust:
-                safe, fast, productive.
-                Pick three.";
-
-        assert_eq!(
-            vec!["safe, fast, productive."],
-            search(query, contents)
-        );
+    fn it_work() {
+        println!("it's work");
     }
 }
