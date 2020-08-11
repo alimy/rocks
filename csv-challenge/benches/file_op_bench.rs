@@ -1,19 +1,20 @@
 #![feature(test)]
 extern crate test;
 
-use test::Bencher;
-use std::path::PathBuf;
 use csv_challenge::{
-    Opt,
-    {load_csv, write_csv},
-    replace_column,
+    replace_column, Opt, {load_csv, write_csv},
 };
+use std::path::PathBuf;
+use test::Bencher;
 
 #[bench]
 fn bench_read_100times(b: &mut Bencher) {
     b.iter(|| {
-       let n = test::black_box(100);
-       (0..n).fold(0, |_,_|{test_load_csv();0})
+        let n = test::black_box(100);
+        (0..n).fold(0, |_, _| {
+            test_load_csv();
+            0
+        })
     });
 }
 
