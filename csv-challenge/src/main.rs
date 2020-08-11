@@ -22,7 +22,9 @@ fn main() {
             process::exit(1);
         }
     };
-    let output_file = &opt.output.unwrap_or("output/output.csv".to_string());
+    let output_file = &opt
+        .output
+        .unwrap_or_else(|| "output/output.csv".to_string());
     match write_csv(&modified_data, &output_file) {
         Ok(_) => {
             println!("write success!");
